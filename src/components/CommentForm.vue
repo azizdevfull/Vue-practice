@@ -3,14 +3,14 @@
         <div class="w-75 mx-auto">
             <h3>Add Comment</h3>
             <form @submit.prevent>
-                <input v-model="comment.name" placeholder="Name"
+                <my-input v-model="comment.name" placeholder="Name"
                     class="form-control" />
-                <input v-model="comment.email" placeholder="Email"
+                <my-input v-model="comment.email" placeholder="Email"
                     class="form-control my-3" />
-                <input v-model="comment.content" placeholder="Content"
+                <my-input v-model="comment.content" placeholder="Content"
                     class="form-control" />
                 <div style="text-align: right;">
-                    <button @click="createComment" class="btn btn-primary mt-3 ml-auto a">Add Comments</button>
+                    <my-button @click="createComment" class="btn btn-primary mt-3 ml-auto a">Add Comments</my-button>
                 </div>
             </form>
         </div>

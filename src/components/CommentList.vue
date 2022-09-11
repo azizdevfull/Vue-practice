@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import CommentItem from "./CommentItem.vue";
+  import CommentItem from './CommentItem';
 export default {
   components: {
     CommentItem
   },
-  props: {
+    props: {
     comments: {
       type: Array,
       required: true,

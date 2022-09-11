@@ -7,7 +7,7 @@
       <p><b>Content:</b> {{ comment.content }}</p>
     </div>
   <div>
-    <button class="btn btn-danger">Delete</button>
+    <my-button class="btn btn-danger">Delete</my-button>
   </div>
 </div>
 
