@@ -1,32 +1,32 @@
 <template>
-    <div>
-        <div class="w-75 mx-auto comment" v-for="comment in comments" v-bind:key="comment.id">
-            <div>
-                <b>Name</b> {{ comment.name }}
-            </div>
-            <div>
-                <b>Email</b> {{ comment.email }}
-            </div>
-            <div>
-                <b>Content</b> {{ comment.content }}
-            </div>
-        </div>
-    </div>
+  <div>
+    <comment-item
+      class="w-75 mx-auto comment"
+      v-for="comment in comments"
+      :comment="comment"
+      :key="comment.id"
+    />
+  </div>
 </template>
+
 <script>
+import CommentItem from "./CommentItem.vue";
 export default {
-    props: {
-        comments: {
-            type: Array,
-            required: true
-        }
-    },
-}
+  components: {
+    CommentItem
+  },
+  props: {
+    comments: {
+      type: Array,
+      required: true,
+    }
+  },
+};
 </script>
 <style scoped>
-    .comment {
-        border: 5px solid #ccc;
-        padding: 10px;
-        margin: 10px;
-    }
+.comment {
+  border: 5px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+}
 </style>
