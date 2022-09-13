@@ -7,7 +7,7 @@
       <p><b>Content:</b> {{ comment.content }}</p>
     </div>
   <div>
-    <my-button class="btn btn-danger">Delete</my-button>
+    <my-button class="btn btn-danger" @click="$emit('remove', comment)">Delete</my-button>
   </div>
 </div>
 
