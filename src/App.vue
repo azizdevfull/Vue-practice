@@ -1,6 +1,6 @@
 <template>
     <navbar class="container" :showModal="showModal" />
-    <my-button @click="fetchComments">Get all Comments</my-button>
+    <my-button @click="fetchComments">Add all Comments</my-button>
     <div>
         <my-modal v-model:show="modalVisible"  >
         <comment-form @addComment="createComment" />
