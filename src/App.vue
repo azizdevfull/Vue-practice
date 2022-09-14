@@ -1,11 +1,13 @@
 <template>
     <navbar class="container" :showModal="showModal" />
-    <my-button @click="fetchComments">Add all Comments</my-button>
     <div>
         <my-modal v-model:show="modalVisible"  >
         <comment-form @addComment="createComment" />
         </my-modal>
-        <comment-list :comments="comments" @remove="removeComment" />            
+        <comment-list :comments="comments" @remove="removeComment" v-if="!isLoading" />  
+                <div v-else class="spinner-grow col-md-3 offset-md-6" role="status">
+                    <span class="visually-hidden m-auto">Loading...</span>
+                </div>
     </div>
 </template>
 
@@ -24,10 +26,9 @@ export default {
     },
     data() {
         return {
-            comments: [
-
-            ],
-            modalVisible: false
+            comments: [],
+            modalVisible: false,
+            isLoading: false,
         }
     },
     methods: {
@@ -44,13 +45,19 @@ export default {
     },
     async fetchComments(){
         try{
+            this.isLoading = true;
             const response = await axios.get('https://jsonplaceholder.typicode.com/comments?_limit=10');
             this.comments = response.data;
         }catch(e){
-            console.log(e);
+            alert('Something went wrong')
+        }finally{
+            this.isLoading = false;
         }
     }
     },
+    mounted(){
+        this.fetchComments();
+    }
 
 };
 </script>

@@ -7,7 +7,7 @@
                     class="form-control" />
                 <my-input v-model="comment.email" placeholder="Email"
                     class="form-control my-3" />
-                <my-input v-model="comment.content" placeholder="Content"
+                <my-input v-model="comment.body" placeholder="Content"
                     class="form-control" />
                 <div style="text-align: right;">
                     <my-button @click="createComment" class="btn btn-primary mt-3 ml-auto a">Add Comments</my-button>
@@ -24,7 +24,7 @@ export default {
             comment: {
             name: "",
             email: "",
-            content: ""
+            body: ""
             }
         }
     },
@@ -35,7 +35,7 @@ export default {
             this.comment = {
                 name: "",
                 email: "",
-                content: ""
+                body: ""
             }
         }
     }
