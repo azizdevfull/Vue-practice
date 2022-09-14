@@ -1,5 +1,6 @@
 <template>
     <navbar class="container" :showModal="showModal" />
+    <my-button @click="fetchComments">Get all Comments</my-button>
     <div>
         <my-modal v-model:show="modalVisible"  >
         <comment-form @addComment="createComment" />
@@ -12,6 +13,7 @@
     import CommentForm from './components/CommentForm';
     import CommentList from './components/CommentList';
     import Navbar from '@/components/Navbar';
+    import axios from 'axios';
     // import
 
 export default {
@@ -23,9 +25,7 @@ export default {
     data() {
         return {
             comments: [
-                { id: 1, name: "Aziz", email: "aziz@gmail.com", content: "Lorem ipsum dolor sit" },
-                { id: 2, name: "Murod", email: "murod@gmail.com", content: "Lorem ipsum dolor sit" },
-                { id: 3, name: "Aziza", email: "aziza@gmail.com", content: "Lorem ipsum dolor sit" },
+
             ],
             modalVisible: false
         }
@@ -41,6 +41,14 @@ export default {
         },
     showModal(){
         this.modalVisible = true;
+    },
+    async fetchComments(){
+        try{
+            const response = await axios.get('https://jsonplaceholder.typicode.com/comments?_limit=10');
+            this.comments = response.data;
+        }catch(e){
+            console.log(e);
+        }
     }
     },
 

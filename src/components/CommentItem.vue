@@ -2,9 +2,9 @@
   <div class="comment">
     <div>
       <p>
-        {{ comment.name }} <b>{{ comment.email }}</b>
+        <p> <b>Name: </b>{{ comment.name }}</p>
       </p>
-      <p><b>Content:</b> {{ comment.content }}</p>
+      <p><b>Content s:</b> {{ comment.body }} <br>  <b>{{ comment.email }}</b></p>
     </div>
   <div>
     <my-button class="btn btn-danger" @click="$emit('remove', comment)">Delete</my-button>
